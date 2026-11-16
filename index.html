@@ -5,131 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="조선대학교 인공지능공학전공 가도도의 프로젝트, 수상 및 활동을 소개합니다.">
   <meta name="theme-color" content="#ffffff">
-  <title>가도도 · AI·IT 서비스 개발</title>
+  <title>가도도 · AI·IT 개발 포트폴리오</title>
   <style>
     :root {
       color-scheme: light;
-      --navy: #112844;
-      --blue: #235793;
-      --text: #263b54;
-      --muted: #52647b;
-      --line: #d8e4f0;
-      --pale: #f1f6fb;
+      --ink: #112746;
+      --body: #334962;
+      --muted: #536780;
+      --blue: #1954a0;
+      --line: #d6e2ee;
+      --wash: #edf4fc;
+      --navy: #102b4e;
       --font: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; background: #fff; color: var(--text); font: 1rem/1.75 var(--font); word-break: keep-all; overflow-wrap: break-word; }
+    body { margin: 0; background: #fff; color: var(--body); font: 1rem/1.75 var(--font); word-break: keep-all; overflow-wrap: break-word; }
     h1, h2, h3, p, dl, dd, figure { margin: 0; }
-    h1, h2, h3 { color: var(--navy); line-height: 1.3; letter-spacing: -.04em; }
-    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: .22em; }
-    a:hover { color: var(--navy); }
-    a:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
-    img { display: block; max-width: 100%; height: auto; }
-    .wrap { width: min(66rem, calc(100% - 4rem)); margin-inline: auto; }
-    .skip { position: absolute; left: 1rem; top: 1rem; translate: 0 -200%; padding: .4rem .8rem; background: #fff; }
-    .skip:focus { translate: 0; z-index: 1; }
+    h1, h2, h3 { color: var(--ink); line-height: 1.23; letter-spacing: -.04em; }
+    h1 { font-size: clamp(3.4rem, 9vw, 6.65rem); letter-spacing: -.095em; font-weight: 800; }
+    h2 { font-size: clamp(1.85rem, 4vw, 2.65rem); font-weight: 800; }
+    h3 { font-size: clamp(1.3rem, 3vw, 1.85rem); }
+    a { color: var(--blue); text-underline-offset: .25em; }
+    a:hover { color: var(--ink); }
+    a:focus-visible, summary:focus-visible, video:focus-visible { outline: 2px solid #2872cc; outline-offset: 4px; }
+    img, video { display: block; max-width: 100%; }
+    .wrap { width: min(71rem, calc(100% - 4.5rem)); margin-inline: auto; }
+    .skip { position: absolute; inset: .5rem auto auto .5rem; transform: translateY(-150%); padding: .4rem .75rem; background: #fff; }
+    .skip:focus { transform: none; z-index: 2; }
 
-    .topbar { border-bottom: 1px solid var(--line); }
-    .topbar .wrap { display: flex; min-height: 4.2rem; justify-content: space-between; align-items: center; gap: .6rem 2rem; flex-wrap: wrap; padding-block: .6rem; }
-    .brand { color: var(--navy); font-weight: 800; text-decoration: none; }
-    nav { display: flex; flex-wrap: wrap; gap: .25rem clamp(.9rem, 3vw, 2rem); font-size: .875rem; }
-    nav a { color: var(--muted); text-decoration: none; padding-block: .25rem; }
+    .header { border-bottom: 1px solid var(--line); }
+    .header-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 2rem; min-height: 4.5rem; padding-block: .5rem; }
+    .wordmark { color: var(--ink); font-size: 1.04rem; font-weight: 800; text-decoration: none; }
+    nav { display: flex; flex-wrap: wrap; gap: .35rem clamp(.65rem, 3.2vw, 2rem); }
+    nav a { padding-block: .2rem; color: var(--muted); font-size: .86rem; text-decoration: none; }
+    nav a:hover { color: var(--blue); text-decoration: underline; }
 
-    .hero { background: var(--pale); border-bottom: 1px solid var(--line); }
-    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: clamp(1.5rem, 6vw, 5rem); padding-block: clamp(2.5rem, 6vw, 5rem); }
-    .hero-role { color: var(--blue); font-size: .95rem; font-weight: 750; }
-    h1 { margin-block: .15rem .75rem; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800; letter-spacing: -.075em; }
-    .intro { max-width: 38rem; color: var(--text); font-size: clamp(.95rem, 2vw, 1.125rem); }
-    .hero-meta { margin-top: 1.05rem; color: var(--muted); font-size: .875rem; }
-    .portrait { width: clamp(7rem, 17vw, 10.5rem); height: auto; border: 1px solid var(--line); }
+    .hero { background: var(--wash); border-bottom: 1px solid var(--line); }
+    .hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(11rem, .46fr); align-items: center; gap: clamp(2rem, 7vw, 7rem); padding-block: clamp(3rem, 8vw, 7rem); }
+    .hero-role { display: flex; align-items: center; gap: .75rem; color: var(--blue); font-size: .96rem; font-weight: 750; }
+    .hero-role::before { content: ""; inline-size: 1.8rem; block-size: 2px; background: currentColor; }
+    .hero h1 { margin-top: .3rem; }
+    .intro { font-size: clamp(1rem, 2vw, 1.2rem); max-width: 36rem; margin-top: 1.15rem; }
+    .hero-meta { color: var(--muted); margin-top: .9rem; font-size: .88rem; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1.5rem; font-size: .9rem; font-weight: 700; }
+    .primary { display: inline-block; padding: .56rem .95rem; background: var(--navy); border: 1px solid var(--navy); color: #fff; text-decoration: none; }
+    .primary:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .portrait-frame { padding: clamp(.45rem, 1.3vw, .8rem); background: #fff; border: 1px solid #bfd1e5; justify-self: end; width: min(100%, 16.5rem); }
+    .portrait-frame img { width: 100%; height: auto; }
 
-    .section { display: grid; grid-template-columns: minmax(7.5rem, 1fr) minmax(0, 4.4fr); gap: 1rem clamp(1.25rem, 4vw, 3rem); padding-block: clamp(2rem, 5vw, 3.35rem); border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
-    .section > h2 { color: var(--blue); font-size: 1.06rem; letter-spacing: -.025em; }
-    h3 { font-size: clamp(1.12rem, 2.2vw, 1.48rem); font-weight: 750; }
-    .project + .project, .award + .award { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
-    .project p, .entry p { margin-top: .45rem; }
-    .project .project-type { color: var(--blue); font-size: .82rem; font-weight: 750; margin: 0 0 .3rem; }
-    .project-details { margin-top: .8rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .28rem .9rem; font-size: .91rem; }
-    dt { color: var(--navy); font-weight: 750; }
-    dd, .muted { color: var(--muted); }
-    .project-media { margin-top: 1.15rem; }
-    .project-media img { width: 100%; border: 1px solid var(--line); }
-    figcaption { color: var(--muted); margin-top: .35rem; font-size: .82rem; }
-    .project .repository { margin-top: .65rem; font-size: .9rem; }
-    .award { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .35rem 1.1rem; }
-    .award h3 { font-size: 1.04rem; }
-    .award p, time, .date { font-size: .86rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .award strong { color: var(--blue); white-space: nowrap; }
-    .entry-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .15rem 1rem; }
-    .coursework { margin-top: .75rem; }
-    .contact-links { display: flex; flex-wrap: wrap; gap: .4rem 1.35rem; }
-    .contact-links a { overflow-wrap: anywhere; }
-    footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; padding-block: 1.3rem 2.2rem; color: var(--muted); font-size: .8rem; }
+    .section { padding-block: clamp(2.75rem, 7vw, 5.25rem); border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
+    .section-heading { display: flex; align-items: center; gap: 1.5rem; margin-bottom: clamp(1.3rem, 3vw, 2rem); }
+    .section-heading::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+    .project-list { display: grid; gap: 1.2rem; }
+    .project { padding: clamp(1.3rem, 3.6vw, 2.25rem); border: 1px solid var(--line); }
+    .project p:not(.project-type) { margin-top: .7rem; }
+    .project-type { color: var(--blue); font-size: .82rem; font-weight: 750; margin-bottom: .35rem; }
+    .featured { background: var(--navy); border-color: var(--navy); color: #e5eefb; display: grid; grid-template-columns: minmax(0, 1fr) minmax(11rem, .43fr); gap: 1.5rem clamp(1.5rem, 4vw, 3rem); align-items: center; }
+    .featured h3, .featured dt { color: #fff; }
+    .featured .project-type, .featured dd { color: #b9d5f5; }
+    .project-details { margin-top: .9rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .3rem .9rem; font-size: .92rem; }
+    dt { color: var(--ink); font-weight: 750; }
+    dd { color: var(--muted); }
+    .flow { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+    .flow li { border: 1px solid #53739b; padding: .45rem .75rem; color: #fff; font-size: .88rem; }
+    .flow li:not(:first-child) { margin-left: .85rem; }
+    .flow li:last-child { margin-left: 1.7rem; }
 
-    @media (max-width: 650px) {
-      .wrap { width: calc(100% - 2.25rem); }
-      .section { grid-template-columns: minmax(0, 1fr); }
-      .hero .wrap { align-items: start; }
-      .portrait { width: clamp(5.25rem, 21vw, 8rem); }
+    .demo { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; gap: clamp(1.1rem, 3.8vw, 2.75rem); }
+    .demo video { width: 100%; aspect-ratio: 16 / 9; background: #10233d; object-fit: contain; border: 1px solid var(--line); }
+    figcaption { color: var(--muted); font-size: .8rem; margin-top: .4rem; }
+    .repository { font-size: .9rem; font-weight: 700; }
+    .project-reference { margin-top: 1rem; font-size: .86rem; }
+    .project-reference summary { width: fit-content; color: var(--blue); cursor: pointer; }
+    .project-reference img { margin-top: .7rem; width: 100%; height: auto; border: 1px solid var(--line); }
+    .concept { border-left: 3px solid #8db3dd; background: #f7fafd; }
+
+    .award-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+    .award { display: flex; flex-direction: column; border: 1px solid var(--line); }
+    .award > a { display: block; padding: .85rem; background: var(--wash); }
+    .award > a:hover { background: #dfedfb; }
+    .award img { width: 100%; height: clamp(10rem, 20vw, 14rem); object-fit: contain; }
+    .award-body { padding: 1rem 1.1rem 1.15rem; }
+    .award strong { color: var(--blue); display: block; font-size: .85rem; margin-bottom: .35rem; }
+    .award h3 { font-size: 1.02rem; line-height: 1.5; }
+    .award p, .date { margin-top: .4rem; color: var(--muted); font-size: .84rem; }
+    time { font-variant-numeric: tabular-nums; }
+    .background-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 2rem clamp(1.8rem, 5vw, 4rem); }
+    .background-grid h3 { font-size: 1.18rem; }
+    .background-grid p { margin-top: .5rem; }
+    .background-stack { display: grid; gap: 1.3rem; }
+    .background-stack article + article { padding-top: 1.3rem; border-top: 1px solid var(--line); }
+    .contact { background: var(--wash); margin-top: clamp(2.25rem, 5vw, 4rem); padding: clamp(1.5rem, 4.5vw, 3rem); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .85rem 2rem; }
+    .contact h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: .45rem 1.5rem; }
+    .contact-links a { overflow-wrap: anywhere; font-size: .92rem; font-weight: 700; }
+    footer { display: flex; justify-content: space-between; gap: .5rem 1rem; padding-block: 1.3rem 2rem; color: var(--muted); font-size: .83rem; }
+
+    @media (max-width: 780px) {
+      .wrap { width: calc(100% - 2.5rem); }
+      .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(6.7rem, .42fr); gap: clamp(1rem, 4vw, 2rem); }
+      .featured, .demo, .background-grid { grid-template-columns: minmax(0, 1fr); }
+      .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; }
+      .flow li:not(:first-child) { margin-left: 0; }
+      .award-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-    @media (max-width: 360px) {
-      .award { grid-template-columns: minmax(0, 1fr); }
+    @media (max-width: 500px) {
+      .wrap { width: calc(100% - 2rem); }
+      .hero-inner { align-items: start; grid-template-columns: minmax(0, 1fr) 5.75rem; }
+      .hero-role { font-size: .82rem; gap: .4rem; }
+      .hero-role::before { inline-size: .9rem; }
+      h1 { font-size: clamp(2.65rem, 12vw, 3.75rem); }
+      .intro { font-size: .93rem; }
+      .hero-meta { font-size: .8rem; }
+      .portrait-frame { margin-top: .45rem; }
+      .award-grid { grid-template-columns: minmax(0, 1fr); }
+      .award img { height: 13rem; }
+      .flow li { font-size: .76rem; padding-inline: .4rem; }
     }
   </style>
 </head>
 <body id="top">
   <a class="skip" href="#main">본문 바로가기</a>
-  <header class="topbar">
-    <div class="wrap">
-      <a class="brand" href="#top">가도도</a>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top">가도도</a>
       <nav aria-label="포트폴리오 메뉴">
         <a href="#projects">프로젝트</a>
         <a href="#awards">수상</a>
-        <a href="#education">학력</a>
-        <a href="#experience">활동</a>
+        <a href="#background">학력 및 활동</a>
         <a href="#contact">연락처</a>
       </nav>
     </div>
   </header>
-
   <main id="main">
     <div class="hero">
-      <div class="wrap">
+      <div class="wrap hero-inner">
         <div>
           <p class="hero-role">AI·IT 서비스 개발</p>
           <h1>가도도</h1>
           <p class="intro">조선대학교에서 인공지능공학을 전공하고 있습니다. 가전기기 전력 모니터링 서비스와 3D 상품 플랫폼을 개발하며, 화면 설계부터 프론트엔드·백엔드 구현과 배포까지 경험했습니다.</p>
-          <p class="hero-meta">광주광역시 <span aria-hidden="true">·</span> 2027년 2월 졸업 예정</p>
+          <p class="hero-meta">광주광역시 · 2027년 2월 졸업 예정</p>
+          <div class="hero-actions">
+            <a class="primary" href="#projects">프로젝트 보기</a>
+            <a href="#contact">연락처</a>
+          </div>
         </div>
-        <img class="portrait" src="assets/profile.jpg" width="965" height="1240" alt="가도도 프로필 사진">
+        <figure class="portrait-frame">
+          <img src="assets/profile.jpg" width="965" height="1240" alt="가도도 프로필 사진">
+        </figure>
       </div>
     </div>
 
     <div class="wrap">
       <section class="section" id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">프로젝트</h2>
-        <div>
-          <article class="project">
-            <p class="project-type">팀 프로젝트</p>
-            <h3>AI 기반 가전기기별 전력 사용량 모니터링</h3>
-            <p>비침투형 부하 모니터링(NILM)을 적용해 전체 전력 사용량에서 가전기기별 사용량을 추정하고, 사용자가 앱에서 결과를 확인할 수 있도록 구현했습니다.</p>
-            <dl class="project-details">
-              <dt>담당</dt><dd>사용자 화면 설계, 프론트엔드·백엔드 개발, 서비스 배포</dd>
-              <dt>성과</dt><dd>한전KDN 경진대회 대상, 조선대학교 캡스톤디자인 경진대회 은상</dd>
-            </dl>
+        <div class="section-heading"><h2 id="projects-title">프로젝트</h2></div>
+        <div class="project-list">
+          <article class="project featured">
+            <div>
+              <p class="project-type">팀 프로젝트</p>
+              <h3>AI 기반 가전기기별 전력 사용량 모니터링</h3>
+              <p>비침투형 부하 모니터링(NILM)을 적용해 전체 전력 사용량에서 가전기기별 사용량을 추정하고, 사용자가 앱에서 결과를 확인할 수 있도록 구현했습니다.</p>
+              <dl class="project-details">
+                <dt>담당</dt><dd>사용자 화면 설계, 프론트엔드·백엔드 개발, 서비스 배포</dd>
+                <dt>성과</dt><dd>한전KDN 경진대회 대상, 조선대학교 캡스톤디자인 경진대회 은상</dd>
+              </dl>
+            </div>
+            <ol class="flow" aria-label="전력 사용량 추정 과정">
+              <li>전체 전력 데이터</li>
+              <li>NILM 기기별 추정</li>
+              <li>앱에서 결과 확인</li>
+            </ol>
           </article>
 
-          <article class="project">
-            <h3>Twin-Market</h3>
-            <p>2D 이미지에서 생성한 3D 모델을 웹에서 미리 볼 수 있는 상품 플랫폼입니다. 3D Gaussian Splatting(3DGS) 기반 모델 생성·미리보기 기능을 구현하고, 생성 모델을 갤러리에서 관리해 상품에 등록하는 흐름을 연결했습니다.</p>
-            <figure class="project-media">
-              <img src="assets/twin-market.png" width="1234" height="834" alt="Twin-Market의 상품 상세 페이지와 헤드폰 3D 미리보기" loading="lazy" decoding="async">
-              <figcaption>Twin-Market 상품 상세 및 3D 미리보기 화면</figcaption>
-            </figure>
-            <p class="repository"><a href="https://github.com/ketaotao/3D-Model">GitHub에서 프로젝트 코드 보기</a></p>
+          <article class="project demo">
+            <div>
+              <p class="project-type">3D Gaussian Splatting</p>
+              <h3>Twin-Market</h3>
+              <p>2D 이미지에서 생성한 3D 모델을 웹에서 미리 볼 수 있는 상품 플랫폼입니다. 3DGS 기반 모델 생성·미리보기 기능을 구현하고, 생성 모델을 갤러리에서 관리해 상품에 등록하는 흐름을 연결했습니다.</p>
+              <p class="repository"><a href="https://github.com/ketaotao/3D-Model">GitHub에서 프로젝트 코드 보기</a></p>
+            </div>
+            <div>
+              <figure>
+                <video controls playsinline preload="metadata" poster="assets/twin-market.png" aria-label="Twin-Market 3DGS 시연 영상">
+                  <source src="c0073f187531d7835b7aa541954f41bf.mp4" type="video/mp4">
+                  <a href="c0073f187531d7835b7aa541954f41bf.mp4">MP4 시연 영상 열기</a>
+                </video>
+                <figcaption>Twin-Market 3DGS 시연 영상</figcaption>
+              </figure>
+              <details class="project-reference">
+                <summary>상품 상세 화면 보기</summary>
+                <img src="assets/twin-market.png" width="1234" height="834" alt="Twin-Market 상품 상세 페이지의 헤드폰 3D 미리보기" loading="lazy">
+              </details>
+            </div>
           </article>
 
-          <article class="project">
+          <article class="project concept">
             <p class="project-type">개인 기획</p>
             <h3>AI·AR 기반 스마트 가구 배치</h3>
             <p>사용자 공간을 고려해 가구 배치를 추천하고, 배치 결과를 AR로 확인하는 서비스의 주요 기능과 사용 흐름을 기획했습니다.</p>
@@ -138,55 +208,70 @@
       </section>
 
       <section class="section" id="awards" aria-labelledby="awards-title">
-        <h2 id="awards-title">수상 내역</h2>
-        <div>
+        <div class="section-heading"><h2 id="awards-title">수상 내역</h2></div>
+        <div class="award-grid">
           <article class="award">
-            <div><h3>빛가람 에너지밸리 소프트웨어 작품 경진대회</h3><p>한전KDN · 대학부 · <time datetime="2025-11-26">2025.11.26</time></p></div>
-            <strong>대상</strong>
+            <a href="73787863c1a292c6d3c5cfc8ea754309.jpg" target="_blank" rel="noopener" aria-label="한전KDN 대상 상장 원본 보기 (새 탭)">
+              <img src="73787863c1a292c6d3c5cfc8ea754309.jpg" width="1080" height="1440" alt="한전KDN 대상 상장" loading="lazy">
+            </a>
+            <div class="award-body">
+              <strong>대상</strong>
+              <h3>빛가람 에너지밸리 소프트웨어 작품 경진대회</h3>
+              <p>한전KDN · 대학부 · <time datetime="2025-11-26">2025.11.26</time></p>
+            </div>
           </article>
           <article class="award">
-            <div><h3>조선대학교 IT Festival SW중심대학 캡스톤디자인 경진대회</h3><p>조선대학교 IT융합대학 · <time datetime="2025-11-28">2025.11.28</time></p></div>
-            <strong>은상</strong>
+            <a href="6fdc946676f945657271e0e8593a69dc.jpg" target="_blank" rel="noopener" aria-label="조선대학교 캡스톤디자인 은상 상장 원본 보기 (새 탭)">
+              <img src="6fdc946676f945657271e0e8593a69dc.jpg" width="1080" height="1440" alt="조선대학교 캡스톤디자인 은상 상장" loading="lazy">
+            </a>
+            <div class="award-body">
+              <strong>은상</strong>
+              <h3>조선대학교 IT Festival SW중심대학 캡스톤디자인 경진대회</h3>
+              <p>조선대학교 IT융합대학 · <time datetime="2025-11-28">2025.11.28</time></p>
+            </div>
           </article>
           <article class="award">
-            <div><h3>중화문화대낙원 한국 광주 캠프</h3><p>동북사범대학교 화문교육기지 · 한국 광주중국학교 · <time datetime="2025-08-09">2025.08.09</time></p></div>
-            <strong>우수교사</strong>
+            <a href="bd7ea7bf17a09266c2727dd84acdf8fa.jpg" target="_blank" rel="noopener" aria-label="우수교사 증서 원본 보기 (새 탭)">
+              <img src="bd7ea7bf17a09266c2727dd84acdf8fa.jpg" width="1920" height="1080" alt="중화문화대낙원 한국 광주 캠프 우수교사 증서" loading="lazy">
+            </a>
+            <div class="award-body">
+              <strong>우수교사</strong>
+              <h3>중화문화대낙원 한국 광주 캠프</h3>
+              <p>동북사범대학교 화문교육기지 · 한국 광주중국학교 · <time datetime="2025-08-09">2025.08.09</time></p>
+            </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="education" aria-labelledby="education-title">
-        <h2 id="education-title">학력</h2>
-        <div class="entry">
-          <div class="entry-heading">
+      <section class="section" id="background" aria-labelledby="background-title">
+        <div class="section-heading"><h2 id="background-title">학력 및 활동</h2></div>
+        <div class="background-grid">
+          <article>
             <h3>조선대학교</h3>
-            <span class="date"><time datetime="2024-09-01">2024.09.01</time> – <time datetime="2027-02">2027.02</time> (졸업 예정)</span>
+            <p>AI소프트웨어학부 인공지능공학전공 · 학사 과정</p>
+            <p class="date"><time datetime="2024-09-01">2024.09.01</time> – <time datetime="2027-02">2027.02</time> (졸업 예정)</p>
+            <dl class="project-details">
+              <dt>AI·데이터</dt><dd>인공지능, 기계학습, 딥러닝, 빅데이터 분석</dd>
+              <dt>컴퓨터공학</dt><dd>알고리즘, 자료구조, 컴퓨터구조, 운영체제, 데이터베이스, 컴퓨터네트워크, 클라우드 컴퓨팅</dd>
+            </dl>
+          </article>
+          <div class="background-stack">
+            <article>
+              <h3>중국어 교사</h3>
+              <p>중화문화대낙원 한국 광주 캠프에서 한국인 학습자에게 한국어로 중국어를 가르치고 중국 문화를 소개했습니다.</p>
+            </article>
+            <article>
+              <h3>기술 및 어학</h3>
+              <dl class="project-details">
+                <dt>기술</dt><dd>Python, SQL, 데이터 분석, UI/UX 설계, 웹 개발, 3DGS, 서비스 배포</dd>
+                <dt>어학</dt><dd>중국어 원어민 · 한국어 TOPIK 4급 이상</dd>
+              </dl>
+            </article>
           </div>
-          <p>AI소프트웨어학부 인공지능공학전공 · 학사 과정</p>
-          <dl class="project-details coursework">
-            <dt>AI·데이터</dt><dd>인공지능, 기계학습, 딥러닝, 빅데이터 분석</dd>
-            <dt>컴퓨터공학</dt><dd>알고리즘, 자료구조, 컴퓨터구조, 운영체제, 데이터베이스, 컴퓨터네트워크, 클라우드 컴퓨팅</dd>
-          </dl>
         </div>
       </section>
 
-      <section class="section" id="experience" aria-labelledby="experience-title">
-        <h2 id="experience-title">교육 활동</h2>
-        <div class="entry">
-          <h3>중화문화대낙원 한국 광주 캠프 · 중국어 교사</h3>
-          <p>한국인 학습자에게 한국어로 중국어를 가르치고 중국 문화를 소개했습니다. 2025년 캠프에서 우수교사로 선정되었습니다.</p>
-        </div>
-      </section>
-
-      <section class="section" id="skills" aria-labelledby="skills-title">
-        <h2 id="skills-title">기술 및 어학</h2>
-        <dl class="project-details">
-          <dt>기술</dt><dd>Python, SQL, 데이터 분석, UI/UX 설계, 웹 개발, 3DGS, 서비스 배포</dd>
-          <dt>어학</dt><dd>중국어 원어민 · 한국어 TOPIK 4급 이상</dd>
-        </dl>
-      </section>
-
-      <section class="section" id="contact" aria-labelledby="contact-title">
+      <section class="contact" id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">연락처</h2>
         <div class="contact-links">
           <a href="mailto:ketaotao8@gmail.com">ketaotao8@gmail.com</a>
@@ -195,7 +280,6 @@
       </section>
     </div>
   </main>
-
   <footer class="wrap">
     <span>가도도</span>
     <a href="#top">맨 위로 ↑</a>
