@@ -3,167 +3,202 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="이력서">
+  <meta name="description" content="조선대학교 인공지능공학전공 가도도의 프로젝트, 수상 및 활동을 소개합니다.">
   <meta name="theme-color" content="#ffffff">
-  <title>이력서</title>
+  <title>가도도 · AI·IT 서비스 개발</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #ffffff;
-      --ink: #122746;
-      --muted: #425674;
-      --line: #d8e4f1;
-      --accent: #204f87;
-      --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
-      --serif: "Noto Serif KR", Batang, "AppleMyungjo", serif;
+      --navy: #112844;
+      --blue: #235793;
+      --text: #263b54;
+      --muted: #52647b;
+      --line: #d8e4f0;
+      --pale: #f1f6fb;
+      --font: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.7 var(--sans); }
-    h1, h2, h3, p, figure { margin: 0; word-break: keep-all; }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
-    .sheet { width: min(60rem, calc(100% - 5rem)); margin-inline: auto; }
+    body { margin: 0; background: #fff; color: var(--text); font: 1rem/1.75 var(--font); word-break: keep-all; overflow-wrap: break-word; }
+    h1, h2, h3, p, dl, dd, figure { margin: 0; }
+    h1, h2, h3 { color: var(--navy); line-height: 1.3; letter-spacing: -.04em; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: .22em; }
+    a:hover { color: var(--navy); }
+    a:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(66rem, calc(100% - 4rem)); margin-inline: auto; }
+    .skip { position: absolute; left: 1rem; top: 1rem; translate: 0 -200%; padding: .4rem .8rem; background: #fff; }
+    .skip:focus { translate: 0; z-index: 1; }
 
-    .masthead {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: .6rem 2rem;
-      flex-wrap: wrap;
-      min-height: 4.6rem;
-      padding-block: .8rem;
-      border-bottom: 1px solid var(--line);
-      font-size: .875rem;
-    }
-    .brand { display: inline-flex; align-items: center; gap: .65rem; font-weight: 700; }
-    .brand::before { content: ""; width: 1.15rem; height: 2px; background: var(--accent); }
-    .navigation { display: flex; gap: .5rem clamp(1rem, 3vw, 2rem); flex-wrap: wrap; color: var(--muted); }
-    .navigation a { padding-block: .25rem; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .topbar .wrap { display: flex; min-height: 4.2rem; justify-content: space-between; align-items: center; gap: .6rem 2rem; flex-wrap: wrap; padding-block: .6rem; }
+    .brand { color: var(--navy); font-weight: 800; text-decoration: none; }
+    nav { display: flex; flex-wrap: wrap; gap: .25rem clamp(.9rem, 3vw, 2rem); font-size: .875rem; }
+    nav a { color: var(--muted); text-decoration: none; padding-block: .25rem; }
 
-    .profile {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(1.2rem, 5vw, 4rem);
-      align-items: end;
-      padding-block: clamp(2.5rem, 7vw, 5.6rem) clamp(2rem, 5vw, 3.6rem);
-      border-bottom: 2px solid var(--ink);
-    }
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 8vw, 5.75rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -.045em;
-      overflow-wrap: anywhere;
-    }
-    .role { margin-top: 1rem; color: var(--accent); font-size: clamp(.95rem, 2vw, 1.125rem); font-weight: 650; }
-    .summary { max-width: 40ch; margin-top: .65rem; color: var(--muted); }
-    .portrait {
-      display: grid;
-      place-items: center;
-      width: clamp(7.25rem, 18vw, 10rem);
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: #f0f5fb;
-      color: var(--muted);
-      font-size: .75rem;
-      letter-spacing: .08em;
-    }
-    .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .hero { background: var(--pale); border-bottom: 1px solid var(--line); }
+    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: clamp(1.5rem, 6vw, 5rem); padding-block: clamp(2.5rem, 6vw, 5rem); }
+    .hero-role { color: var(--blue); font-size: .95rem; font-weight: 750; }
+    h1 { margin-block: .15rem .75rem; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800; letter-spacing: -.075em; }
+    .intro { max-width: 38rem; color: var(--text); font-size: clamp(.95rem, 2vw, 1.125rem); }
+    .hero-meta { margin-top: 1.05rem; color: var(--muted); font-size: .875rem; }
+    .portrait { width: clamp(7rem, 17vw, 10.5rem); height: auto; border: 1px solid var(--line); }
 
-    .resume-section {
-      display: grid;
-      grid-template-columns: minmax(8rem, .25fr) minmax(0, 1fr);
-      gap: .65rem 2rem;
-      padding-block: clamp(1.3rem, 3vw, 2rem);
-      border-bottom: 1px solid var(--line);
-      scroll-margin-top: 1rem;
-    }
-    h2 { color: var(--accent); font-size: .875rem; font-weight: 700; letter-spacing: .065em; }
-    h3 { font-size: 1.125rem; font-weight: 650; line-height: 1.45; }
-    .details { margin-top: .35rem; color: var(--muted); font-size: .9375rem; }
-    .entry-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .25rem 1.3rem; }
-    .period { color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
-    .inline-list { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: 0; padding: 0; list-style: none; }
-    .inline-list li + li { padding-inline-start: .9rem; border-inline-start: 1px solid var(--line); }
-    .resume-section a { overflow-wrap: anywhere; }
-    .site-footer { display: flex; justify-content: flex-end; padding-block: 1.1rem 2.25rem; color: var(--muted); font-size: .8125rem; }
+    .section { display: grid; grid-template-columns: minmax(7.5rem, 1fr) minmax(0, 4.4fr); gap: 1rem clamp(1.25rem, 4vw, 3rem); padding-block: clamp(2rem, 5vw, 3.35rem); border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
+    .section > h2 { color: var(--blue); font-size: 1.06rem; letter-spacing: -.025em; }
+    h3 { font-size: clamp(1.12rem, 2.2vw, 1.48rem); font-weight: 750; }
+    .project + .project, .award + .award { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    .project p, .entry p { margin-top: .45rem; }
+    .project .project-type { color: var(--blue); font-size: .82rem; font-weight: 750; margin: 0 0 .3rem; }
+    .project-details { margin-top: .8rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .28rem .9rem; font-size: .91rem; }
+    dt { color: var(--navy); font-weight: 750; }
+    dd, .muted { color: var(--muted); }
+    .project-media { margin-top: 1.15rem; }
+    .project-media img { width: 100%; border: 1px solid var(--line); }
+    figcaption { color: var(--muted); margin-top: .35rem; font-size: .82rem; }
+    .project .repository { margin-top: .65rem; font-size: .9rem; }
+    .award { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .35rem 1.1rem; }
+    .award h3 { font-size: 1.04rem; }
+    .award p, time, .date { font-size: .86rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .award strong { color: var(--blue); white-space: nowrap; }
+    .entry-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .15rem 1rem; }
+    .coursework { margin-top: .75rem; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: .4rem 1.35rem; }
+    .contact-links a { overflow-wrap: anywhere; }
+    footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; padding-block: 1.3rem 2.2rem; color: var(--muted); font-size: .8rem; }
 
-    @media (max-width: 620px) {
-      .sheet { width: calc(100% - 2.5rem); }
-      .masthead { min-height: 3.75rem; }
-      .profile { align-items: start; }
-      h1 { font-size: clamp(2.125rem, 10vw, 3.9rem); }
-      .portrait { width: clamp(4.75rem, 22vw, 7.25rem); }
-      .resume-section { grid-template-columns: minmax(0, 1fr); }
+    @media (max-width: 650px) {
+      .wrap { width: calc(100% - 2.25rem); }
+      .section { grid-template-columns: minmax(0, 1fr); }
+      .hero .wrap { align-items: start; }
+      .portrait { width: clamp(5.25rem, 21vw, 8rem); }
+    }
+    @media (max-width: 360px) {
+      .award { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
 </head>
 <body id="top">
-  <div class="sheet">
-    <header class="masthead">
-      <a class="brand" href="#top">이력서</a>
-      <nav class="navigation" aria-label="이력서 메뉴">
-        <a href="#education">학력</a>
+  <a class="skip" href="#main">본문 바로가기</a>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top">가도도</a>
+      <nav aria-label="포트폴리오 메뉴">
         <a href="#projects">프로젝트</a>
-        <a href="#skills">기술</a>
+        <a href="#awards">수상</a>
+        <a href="#education">학력</a>
+        <a href="#experience">활동</a>
         <a href="#contact">연락처</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <div class="profile">
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
         <div>
-          <h1>이름</h1>
-          <p class="role">전공 · 희망 직무</p>
-          <p class="summary">관심 분야와 경험을 한 문장으로 소개합니다.</p>
+          <p class="hero-role">AI·IT 서비스 개발</p>
+          <h1>가도도</h1>
+          <p class="intro">조선대학교에서 인공지능공학을 전공하고 있습니다. 가전기기 전력 모니터링 서비스와 3D 상품 플랫폼을 개발하며, 화면 설계부터 프론트엔드·백엔드 구현과 배포까지 경험했습니다.</p>
+          <p class="hero-meta">광주광역시 <span aria-hidden="true">·</span> 2027년 2월 졸업 예정</p>
         </div>
-        <!-- 사진을 추가할 때 이 문구를 src와 alt가 있는 img 요소로 바꿉니다. -->
-        <figure class="portrait"><span>프로필 사진</span></figure>
+        <img class="portrait" src="assets/profile.jpg" width="965" height="1240" alt="가도도 프로필 사진">
       </div>
+    </div>
 
-      <section class="resume-section" id="education" aria-labelledby="education-title">
+    <div class="wrap">
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">프로젝트</h2>
+        <div>
+          <article class="project">
+            <p class="project-type">팀 프로젝트</p>
+            <h3>AI 기반 가전기기별 전력 사용량 모니터링</h3>
+            <p>비침투형 부하 모니터링(NILM)을 적용해 전체 전력 사용량에서 가전기기별 사용량을 추정하고, 사용자가 앱에서 결과를 확인할 수 있도록 구현했습니다.</p>
+            <dl class="project-details">
+              <dt>담당</dt><dd>사용자 화면 설계, 프론트엔드·백엔드 개발, 서비스 배포</dd>
+              <dt>성과</dt><dd>한전KDN 경진대회 대상, 조선대학교 캡스톤디자인 경진대회 은상</dd>
+            </dl>
+          </article>
+
+          <article class="project">
+            <h3>Twin-Market</h3>
+            <p>2D 이미지에서 생성한 3D 모델을 웹에서 미리 볼 수 있는 상품 플랫폼입니다. 3D Gaussian Splatting(3DGS) 기반 모델 생성·미리보기 기능을 구현하고, 생성 모델을 갤러리에서 관리해 상품에 등록하는 흐름을 연결했습니다.</p>
+            <figure class="project-media">
+              <img src="assets/twin-market.png" width="1234" height="834" alt="Twin-Market의 상품 상세 페이지와 헤드폰 3D 미리보기" loading="lazy" decoding="async">
+              <figcaption>Twin-Market 상품 상세 및 3D 미리보기 화면</figcaption>
+            </figure>
+            <p class="repository"><a href="https://github.com/ketaotao/3D-Model">GitHub에서 프로젝트 코드 보기</a></p>
+          </article>
+
+          <article class="project">
+            <p class="project-type">개인 기획</p>
+            <h3>AI·AR 기반 스마트 가구 배치</h3>
+            <p>사용자 공간을 고려해 가구 배치를 추천하고, 배치 결과를 AR로 확인하는 서비스의 주요 기능과 사용 흐름을 기획했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="awards" aria-labelledby="awards-title">
+        <h2 id="awards-title">수상 내역</h2>
+        <div>
+          <article class="award">
+            <div><h3>빛가람 에너지밸리 소프트웨어 작품 경진대회</h3><p>한전KDN · 대학부 · <time datetime="2025-11-26">2025.11.26</time></p></div>
+            <strong>대상</strong>
+          </article>
+          <article class="award">
+            <div><h3>조선대학교 IT Festival SW중심대학 캡스톤디자인 경진대회</h3><p>조선대학교 IT융합대학 · <time datetime="2025-11-28">2025.11.28</time></p></div>
+            <strong>은상</strong>
+          </article>
+          <article class="award">
+            <div><h3>중화문화대낙원 한국 광주 캠프</h3><p>동북사범대학교 화문교육기지 · 한국 광주중국학교 · <time datetime="2025-08-09">2025.08.09</time></p></div>
+            <strong>우수교사</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="education" aria-labelledby="education-title">
         <h2 id="education-title">학력</h2>
-        <div>
+        <div class="entry">
           <div class="entry-heading">
-            <h3>학교명</h3>
-            <p class="period">재학 기간</p>
+            <h3>조선대학교</h3>
+            <span class="date"><time datetime="2024-09-01">2024.09.01</time> – <time datetime="2027-02">2027.02</time> (졸업 예정)</span>
           </div>
-          <p class="details">전공 · 학위</p>
+          <p>AI소프트웨어학부 인공지능공학전공 · 학사 과정</p>
+          <dl class="project-details coursework">
+            <dt>AI·데이터</dt><dd>인공지능, 기계학습, 딥러닝, 빅데이터 분석</dd>
+            <dt>컴퓨터공학</dt><dd>알고리즘, 자료구조, 컴퓨터구조, 운영체제, 데이터베이스, 컴퓨터네트워크, 클라우드 컴퓨팅</dd>
+          </dl>
         </div>
       </section>
 
-      <section class="resume-section" id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">프로젝트 경험</h2>
-        <div>
-          <h3>프로젝트명</h3>
-          <p class="details">프로젝트 개요, 담당 역할 및 성과를 작성합니다.</p>
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">교육 활동</h2>
+        <div class="entry">
+          <h3>중화문화대낙원 한국 광주 캠프 · 중국어 교사</h3>
+          <p>한국인 학습자에게 한국어로 중국어를 가르치고 중국 문화를 소개했습니다. 2025년 캠프에서 우수교사로 선정되었습니다.</p>
         </div>
       </section>
 
-      <section class="resume-section" id="skills" aria-labelledby="skills-title">
-        <h2 id="skills-title">보유 기술</h2>
-        <ul class="inline-list" role="list">
-          <li>프로그래밍 언어</li>
-          <li>프레임워크 및 도구</li>
-        </ul>
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">기술 및 어학</h2>
+        <dl class="project-details">
+          <dt>기술</dt><dd>Python, SQL, 데이터 분석, UI/UX 설계, 웹 개발, 3DGS, 서비스 배포</dd>
+          <dt>어학</dt><dd>중국어 원어민 · 한국어 TOPIK 4급 이상</dd>
+        </dl>
       </section>
 
-      <section class="resume-section" id="contact" aria-labelledby="contact-title">
+      <section class="section" id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">연락처</h2>
-        <ul class="inline-list" role="list">
-          <li>이메일</li>
-          <li>GitHub</li>
-        </ul>
+        <div class="contact-links">
+          <a href="mailto:ketaotao8@gmail.com">ketaotao8@gmail.com</a>
+          <a href="https://github.com/ketaotao">GitHub</a>
+        </div>
       </section>
-    </main>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <a href="#top">맨 위로 ↑</a>
-    </footer>
-  </div>
+  <footer class="wrap">
+    <span>가도도</span>
+    <a href="#top">맨 위로 ↑</a>
+  </footer>
 </body>
 </html>
