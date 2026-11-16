@@ -1,26 +1,26 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="个人简历">
-  <meta name="theme-color" content="#faf9f6">
-  <title>个人简历</title>
+  <meta name="description" content="이력서">
+  <meta name="theme-color" content="#ffffff">
+  <title>이력서</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #faf9f6;
-      --ink: #242321;
-      --muted: #615b55;
-      --line: #d8d3ca;
-      --accent: #733c43;
-      --sans: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-      --serif: "Noto Serif SC", "Songti SC", "STSong", SimSun, serif;
+      --paper: #ffffff;
+      --ink: #122746;
+      --muted: #425674;
+      --line: #d8e4f1;
+      --accent: #204f87;
+      --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+      --serif: "Noto Serif KR", Batang, "AppleMyungjo", serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.7 var(--sans); }
-    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3, p, figure { margin: 0; word-break: keep-all; }
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
     a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
@@ -55,7 +55,7 @@
       font-size: clamp(3rem, 8vw, 5.75rem);
       font-weight: 700;
       line-height: 1.08;
-      letter-spacing: .015em;
+      letter-spacing: -.045em;
       overflow-wrap: anywhere;
     }
     .role { margin-top: 1rem; color: var(--accent); font-size: clamp(.95rem, 2vw, 1.125rem); font-weight: 650; }
@@ -67,7 +67,7 @@
       aspect-ratio: 4 / 5;
       overflow: hidden;
       border: 1px solid var(--line);
-      background: #eeebe5;
+      background: #f0f5fb;
       color: var(--muted);
       font-size: .75rem;
       letter-spacing: .08em;
@@ -105,64 +105,64 @@
 <body id="top">
   <div class="sheet">
     <header class="masthead">
-      <a class="brand" href="#top">个人简历</a>
-      <nav class="navigation" aria-label="简历目录">
-        <a href="#education">教育</a>
-        <a href="#projects">项目</a>
-        <a href="#skills">技能</a>
-        <a href="#contact">联系</a>
+      <a class="brand" href="#top">이력서</a>
+      <nav class="navigation" aria-label="이력서 메뉴">
+        <a href="#education">학력</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#skills">기술</a>
+        <a href="#contact">연락처</a>
       </nav>
     </header>
 
     <main>
       <div class="profile">
         <div>
-          <h1>你的姓名</h1>
-          <p class="role">专业方向 / 目标岗位</p>
-          <p class="summary">在这里填写一句个人简介。</p>
+          <h1>이름</h1>
+          <p class="role">전공 · 희망 직무</p>
+          <p class="summary">관심 분야와 경험을 한 문장으로 소개합니다.</p>
         </div>
-        <!-- 加照片时，用带有 src 和 alt 的 img 替换占位文字。 -->
-        <figure class="portrait"><span>头像位置</span></figure>
+        <!-- 사진을 추가할 때 이 문구를 src와 alt가 있는 img 요소로 바꿉니다. -->
+        <figure class="portrait"><span>프로필 사진</span></figure>
       </div>
 
       <section class="resume-section" id="education" aria-labelledby="education-title">
-        <h2 id="education-title">教育经历</h2>
+        <h2 id="education-title">학력</h2>
         <div>
           <div class="entry-heading">
-            <h3>学校名称</h3>
-            <p class="period">在读时间</p>
+            <h3>학교명</h3>
+            <p class="period">재학 기간</p>
           </div>
-          <p class="details">专业名称 · 学位</p>
+          <p class="details">전공 · 학위</p>
         </div>
       </section>
 
       <section class="resume-section" id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">项目经历</h2>
+        <h2 id="projects-title">프로젝트 경험</h2>
         <div>
-          <h3>项目名称</h3>
-          <p class="details">项目简介、个人职责和成果。</p>
+          <h3>프로젝트명</h3>
+          <p class="details">프로젝트 개요, 담당 역할 및 성과를 작성합니다.</p>
         </div>
       </section>
 
       <section class="resume-section" id="skills" aria-labelledby="skills-title">
-        <h2 id="skills-title">技能</h2>
+        <h2 id="skills-title">보유 기술</h2>
         <ul class="inline-list" role="list">
-          <li>编程语言</li>
-          <li>框架与工具</li>
+          <li>프로그래밍 언어</li>
+          <li>프레임워크 및 도구</li>
         </ul>
       </section>
 
       <section class="resume-section" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">联系方式</h2>
+        <h2 id="contact-title">연락처</h2>
         <ul class="inline-list" role="list">
-          <li>电子邮箱</li>
+          <li>이메일</li>
           <li>GitHub</li>
         </ul>
       </section>
     </main>
 
     <footer class="site-footer">
-      <a href="#top">返回顶部 ↑</a>
+      <a href="#top">맨 위로 ↑</a>
     </footer>
   </div>
 </body>
