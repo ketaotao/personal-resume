@@ -3,104 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="个人简历网站模板">
-  <meta name="theme-color" content="#f7f8f6">
+  <meta name="description" content="个人简历">
+  <meta name="theme-color" content="#faf9f6">
   <title>个人简历</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f7f8f6;
-      --surface: #fff;
-      --ink: #182726;
-      --muted: #53625f;
-      --line: #dce4df;
-      --accent: #216151;
-      --tint: #e8f0eb;
+      --paper: #faf9f6;
+      --ink: #242321;
+      --muted: #615b55;
+      --line: #d8d3ca;
+      --accent: #733c43;
+      --sans: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --serif: "Noto Serif SC", "Songti SC", "STSong", SimSun, serif;
     }
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font: 1rem/1.65 Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.7 var(--sans); }
+    h1, h2, h3, p, figure { margin: 0; }
     a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .24em; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
-    .shell { width: min(100% - 3rem, 56rem); margin-inline: auto; }
-    .site-header { border-bottom: 1px solid var(--line); }
-    .header-inner, .site-footer {
+    a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .sheet { width: min(60rem, calc(100% - 5rem)); margin-inline: auto; }
+
+    .masthead {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: .6rem 2rem;
       flex-wrap: wrap;
+      min-height: 4.6rem;
+      padding-block: .8rem;
+      border-bottom: 1px solid var(--line);
+      font-size: .875rem;
     }
-    .header-inner { min-height: 4.5rem; padding-block: .85rem; }
-    .brand { font-weight: 700; }
-    .navigation { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; }
-    .navigation a, .site-footer { color: var(--muted); font-size: .875rem; }
-    main { padding-block: clamp(2.25rem, 7vw, 5rem) 2.75rem; }
-    h1, h2, h3, p { margin: 0; }
-    .hero {
+    .brand { display: inline-flex; align-items: center; gap: .65rem; font-weight: 700; }
+    .brand::before { content: ""; width: 1.15rem; height: 2px; background: var(--accent); }
+    .navigation { display: flex; gap: .5rem clamp(1rem, 3vw, 2rem); flex-wrap: wrap; color: var(--muted); }
+    .navigation a { padding-block: .25rem; }
+
+    .profile {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      align-items: center;
-      gap: clamp(1rem, 4vw, 3rem);
-      padding: clamp(1.5rem, 5vw, 3.25rem);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 1.35rem;
+      gap: clamp(1.2rem, 5vw, 4rem);
+      align-items: end;
+      padding-block: clamp(2.5rem, 7vw, 5.6rem) clamp(2rem, 5vw, 3.6rem);
+      border-bottom: 2px solid var(--ink);
     }
-    h1 { font-size: clamp(2.25rem, 7vw, 4rem); line-height: 1.12; letter-spacing: -.04em; }
-    .role { margin-top: .65rem; color: var(--accent); font-weight: 650; }
-    .hero p + p { margin-top: .65rem; color: var(--muted); }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 5.75rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: .015em;
+      overflow-wrap: anywhere;
+    }
+    .role { margin-top: 1rem; color: var(--accent); font-size: clamp(.95rem, 2vw, 1.125rem); font-weight: 650; }
+    .summary { max-width: 40ch; margin-top: .65rem; color: var(--muted); }
     .portrait {
       display: grid;
       place-items: center;
-      inline-size: clamp(5.25rem, 19vw, 9.5rem);
+      width: clamp(7.25rem, 18vw, 10rem);
       aspect-ratio: 4 / 5;
       overflow: hidden;
-      background: var(--tint);
       border: 1px solid var(--line);
-      border-radius: .85rem;
-      color: var(--accent);
-      font-size: .875rem;
+      background: #eeebe5;
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .08em;
     }
     .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
     .resume-section {
       display: grid;
-      grid-template-columns: 9rem minmax(0, 1fr);
-      gap: .5rem 1.5rem;
-      padding-block: 1.4rem;
+      grid-template-columns: minmax(8rem, .25fr) minmax(0, 1fr);
+      gap: .65rem 2rem;
+      padding-block: clamp(1.3rem, 3vw, 2rem);
       border-bottom: 1px solid var(--line);
       scroll-margin-top: 1rem;
     }
-    .resume-section:first-of-type { margin-top: 2rem; }
-    h2 { font-size: 1rem; color: var(--accent); }
-    h3 { font-size: 1rem; font-weight: 650; }
-    .details { margin-top: .2rem; color: var(--muted); font-size: .92rem; }
-    .entry-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .15rem 1rem; }
-    .entry-heading .details { margin-top: 0; }
-    .skills { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
-    .skills li { padding: .12rem .7rem; background: var(--tint); color: var(--accent); border-radius: .35rem; font-size: .875rem; }
-    .site-footer { padding-bottom: 2rem; }
+    h2 { color: var(--accent); font-size: .875rem; font-weight: 700; letter-spacing: .065em; }
+    h3 { font-size: 1.125rem; font-weight: 650; line-height: 1.45; }
+    .details { margin-top: .35rem; color: var(--muted); font-size: .9375rem; }
+    .entry-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .25rem 1.3rem; }
+    .period { color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
+    .inline-list { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: 0; padding: 0; list-style: none; }
+    .inline-list li + li { padding-inline-start: .9rem; border-inline-start: 1px solid var(--line); }
+    .resume-section a { overflow-wrap: anywhere; }
+    .site-footer { display: flex; justify-content: flex-end; padding-block: 1.1rem 2.25rem; color: var(--muted); font-size: .8125rem; }
 
-    @media (max-width: 540px) {
-      .shell { width: calc(100% - 2rem); }
-      .resume-section { grid-template-columns: 1fr; }
-      .navigation { gap: .4rem .85rem; }
-    }
-    @media (max-width: 350px) {
-      .hero { grid-template-columns: 1fr; }
-      .portrait { grid-row: 1; }
+    @media (max-width: 620px) {
+      .sheet { width: calc(100% - 2.5rem); }
+      .masthead { min-height: 3.75rem; }
+      .profile { align-items: start; }
+      h1 { font-size: clamp(2.125rem, 10vw, 3.9rem); }
+      .portrait { width: clamp(4.75rem, 22vw, 7.25rem); }
+      .resume-section { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
 </head>
 <body id="top">
-  <header class="site-header">
-    <div class="shell header-inner">
+  <div class="sheet">
+    <header class="masthead">
       <a class="brand" href="#top">个人简历</a>
       <nav class="navigation" aria-label="简历目录">
         <a href="#education">教育</a>
@@ -108,55 +112,58 @@
         <a href="#skills">技能</a>
         <a href="#contact">联系</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="shell">
-    <div class="hero">
-      <div>
-        <h1>你的姓名</h1>
-        <p class="role">专业方向 / 目标岗位</p>
-        <p>一句话介绍你的背景或关注的技术方向。</p>
-      </div>
-      <!-- 加照片时，将下方的 span 换成 img，并补上 src 与 alt。 -->
-      <div class="portrait"><span>头像位置</span></div>
-    </div>
-
-    <section class="resume-section" id="education" aria-labelledby="education-title">
-      <h2 id="education-title">教育经历</h2>
-      <div>
-        <div class="entry-heading">
-          <h3>学校名称</h3>
-          <p class="details">在读时间</p>
+    <main>
+      <div class="profile">
+        <div>
+          <h1>你的姓名</h1>
+          <p class="role">专业方向 / 目标岗位</p>
+          <p class="summary">在这里填写一句个人简介。</p>
         </div>
-        <p class="details">专业名称 · 学位</p>
+        <!-- 加照片时，用带有 src 和 alt 的 img 替换占位文字。 -->
+        <figure class="portrait"><span>头像位置</span></figure>
       </div>
-    </section>
 
-    <section class="resume-section" id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">项目经历</h2>
-      <div>
-        <h3>项目名称</h3>
-        <p class="details">简述项目目标、你的职责与成果。</p>
-      </div>
-    </section>
+      <section class="resume-section" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">教育经历</h2>
+        <div>
+          <div class="entry-heading">
+            <h3>学校名称</h3>
+            <p class="period">在读时间</p>
+          </div>
+          <p class="details">专业名称 · 学位</p>
+        </div>
+      </section>
 
-    <section class="resume-section" id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">技能</h2>
-      <ul class="skills">
-        <li>编程语言</li>
-        <li>框架与工具</li>
-      </ul>
-    </section>
+      <section class="resume-section" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">项目经历</h2>
+        <div>
+          <h3>项目名称</h3>
+          <p class="details">项目简介、个人职责和成果。</p>
+        </div>
+      </section>
 
-    <section class="resume-section" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">联系方式</h2>
-      <p class="details">电子邮箱 · GitHub</p>
-    </section>
-  </main>
+      <section class="resume-section" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">技能</h2>
+        <ul class="inline-list" role="list">
+          <li>编程语言</li>
+          <li>框架与工具</li>
+        </ul>
+      </section>
 
-  <footer class="shell site-footer">
-    <a href="#top">返回顶部 ↑</a>
-  </footer>
+      <section class="resume-section" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">联系方式</h2>
+        <ul class="inline-list" role="list">
+          <li>电子邮箱</li>
+          <li>GitHub</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="#top">返回顶部 ↑</a>
+    </footer>
+  </div>
 </body>
 </html>
